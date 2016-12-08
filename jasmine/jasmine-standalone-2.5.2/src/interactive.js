@@ -1,13 +1,16 @@
 $(document).ready(function() {
-  var jsonData;
+
+
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=6d4bbb8a1db58900a6e66af4b3cdacca&units=metric', function (data) {
+    $('#weather').text(data.main.temp);
+    console.log(data.main.temp);
+  })
+
+
   $.ajax ({
-    url: 'http://api.openweathermap.org/data/2.5/forecast/city?id=2643743&APPID={6d4bbb8a1db58900a6e66af4b3cdacca}',
-    jsonp: "callback",
-    dataType: "jsnop",
-    data: {
-      q: 'city',
-      format: "json"
-    },
+    url: 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=6d4bbb8a1db58900a6e66af4b3cdacca&units=metric',
+    type: "GET",
+    datatype: "json,",
     success: function(response) {
       jsonData = response;
       console.log(response);
@@ -15,6 +18,7 @@ $(document).ready(function() {
   });
 
   var thermostat = new Thermostat();
+
 
   $("#powerSaveOn").on("click", function(){
     thermostat.powerSaving("on");
