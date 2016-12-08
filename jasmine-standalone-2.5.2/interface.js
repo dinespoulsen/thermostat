@@ -6,6 +6,7 @@ var reset = $("#reset");
 var powermode = $("#powermode");
 var toggle = $("#powertoggle");
 var energyusage = $("#energyusage");
+var error = $("#error");
 
 window.onload = function() {
   currentTemp.text(thermostat.getCurrentTemperature());
@@ -17,9 +18,15 @@ minus.click( function(){
   thermostat.decreaseTemp();
   currentTemp.text(thermostat.getCurrentTemperature());
 });
+
 plus.click( function(){
-  thermostat.increaseTemp();
-  currentTemp.text(thermostat.getCurrentTemperature());
+  try{
+    thermostat.increaseTemp();
+    }
+  catch(err) {
+        error.text("error");
+    }
+    currentTemp.text(thermostat.getCurrentTemperature());
 });
 
 reset.click( function(){
