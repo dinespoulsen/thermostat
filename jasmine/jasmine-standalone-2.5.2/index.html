@@ -2,9 +2,11 @@
 <html>
 <head>
 <title> Thermostat </title>
-<script src="jquery.js"></script>
+  <script src="jquery.js"></script>
+  <link href = "css/style.css" rel="stylesheet" type='text/css' >
 </head>
-<body>
+<body id='body'>
+
   <h1>Welcome to Thermostat</h1>
 
   <form  id='form'>
@@ -18,8 +20,8 @@
   <h3 id="usage">Medium usage</h3><br>
   <h3>Outside temperature is: <span id="weather"></span></h3>
 
-  <input type="button" name="increase" id="increase" value="+"><br>
-  <input type='button' name="decrease" id="decrease" value="-"><br>
+  <input id="increase" type="button" name="increase"  value="+"><br>
+  <input id="decrease" type='button' name="decrease"  value="-"><br>
   <input id='reset' type='button' name='reset' value="Reset Temperature"><br>
   <input id="powerSaveOn" type="button" name="powerSaveOn"  value="Power Saving Mode On"><br>
   <input id="powerSaveOff" type="button" name="powerSaveOff" value="Power Saving Mode Off">

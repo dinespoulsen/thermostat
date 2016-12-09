@@ -36,8 +36,6 @@ $(document).ready(function() {
   $(':button').click(function () {
     $("#temperature").text(thermostat.getTemperature());
     $('#usage').text(thermostat.energyUsage());
-    if (thermostat.energyUsage() === 'Low usage') $('#usage').css('color', 'green');
-    if (thermostat.energyUsage() === 'Medium usage') $('#usage').css('color', 'black');
-    if (thermostat.energyUsage() === 'High usage') $('#usage').css('color', 'red');
+    $('#usage').attr('class', thermostat.energyUsage());
   });
   });
