@@ -35,6 +35,10 @@ Thermostat.prototype.reset = function () {
   this.temperature = this.STARTING_TEMPERATURE;
 };
 
+Thermostat.prototype.setTemp = function (temp) {
+  this.temperature = temp;
+};
+
 Thermostat.prototype.energyUsage = function () {
   if (this.temperature < this.LOW_USAGE) return 'Low-usage';
   if (this.temperature >= this.LOW_USAGE &&  this.temperature < this.HIGH_USAGE)  return 'Medium-usage';

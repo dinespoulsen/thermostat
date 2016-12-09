@@ -9,4 +9,5 @@ gem "data_mapper"
 gem "pg"
 gem "dm-postgres-adapter"
 gem "rake"
-gem 'json'
+gem "json"
+gem "selenium-webdriver"

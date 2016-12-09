@@ -9,10 +9,17 @@ class Thermostat < Sinatra::Base
   end
 
   get '/thermostat/data' do
-
     @thermostat = ThermostatData.get(1)
     content_type :json
     {:temperature => @thermostat.temperature}.to_json
+  end
+
+  post '/thermostat/data' do
+
+    thermostat = ThermostatData.get(1)
+    thermostat.temperature = params[:temperature]
+    thermostat.city = params[:city]
+    thermostat.save
   end
 
   # start the server if ruby file executed directly

@@ -1,8 +1,11 @@
+
 $(document).ready(function() {
-
-
-
   var thermostat = new Thermostat();
+  $.get("http://localhost:9292/thermostat/data", function(data){
+    thermostat.setTemp(data.temperature);
+    $("#temperature").text(thermostat.getTemperature());
+  });
+
 
   $('#form').submit(function () {
     event.preventDefault();
@@ -11,8 +14,6 @@ $(document).ready(function() {
       $('#weather').text(data.main.temp);
     })
   });
-
-
 
   $("#powerSaveOn").on("click", function(){
     thermostat.powerSaving("on");
@@ -41,5 +42,7 @@ $(document).ready(function() {
     $("#temperature").text(thermostat.getTemperature());
     $('#usage').text(thermostat.energyUsage());
     $('#usage').attr('class', thermostat.energyUsage());
+    $.post("http://localhost:9292/thermostat/data", {temperature: thermostat.getTemperature()
+    });
   });
-  });
+});
