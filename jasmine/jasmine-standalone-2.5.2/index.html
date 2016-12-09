@@ -5,10 +5,18 @@
 <script src="jquery.js"></script>
 </head>
 <body>
-  <h1 id="temperature">20</h1><br>
+  <h1>Welcome to Thermostat</h1>
+
+  <form  id='form'>
+    <h3>Select your city</h3>
+    <input id='city' type='text'>
+    <input id='submit' type='submit' value='Submit'>
+  </form>
+
+  <h2>The thermostat temperature is <span id='temperature'>20</span></h2><br>
   <h2 id="powerSavingMode">Power Saving Mode is on</h2><br>
   <h3 id="usage">Medium usage</h3><br>
-  <h3>Current weather is: <span id="weather"></span></h3>
+  <h3>Outside temperature is: <span id="weather"></span></h3>
 
   <input type="button" name="increase" id="increase" value="+"><br>
   <input type='button' name="decrease" id="decrease" value="-"><br>

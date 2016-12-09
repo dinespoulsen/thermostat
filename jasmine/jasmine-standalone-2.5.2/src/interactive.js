@@ -1,24 +1,14 @@
 $(document).ready(function() {
 
-
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=6d4bbb8a1db58900a6e66af4b3cdacca&units=metric', function (data) {
-    $('#weather').text(data.main.temp);
-    console.log(data.main.temp);
-  })
-
-
-  $.ajax ({
-    url: 'http://api.openweathermap.org/data/2.5/weather?q=London&APPID=6d4bbb8a1db58900a6e66af4b3cdacca&units=metric',
-    type: "GET",
-    datatype: "json,",
-    success: function(response) {
-      jsonData = response;
-      console.log(response);
-    }
-  });
-
   var thermostat = new Thermostat();
 
+  $('#form').submit(function () {
+    event.preventDefault();
+    var c =  $('#city').val();
+    $.get("http://api.openweathermap.org/data/2.5/weather?q=" + c + "&APPID=6d4bbb8a1db58900a6e66af4b3cdacca&units=metric", function (data) {
+      $('#weather').text(data.main.temp);
+    })
+  });
 
   $("#powerSaveOn").on("click", function(){
     thermostat.powerSaving("on");
