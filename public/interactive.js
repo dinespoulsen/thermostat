@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+  
+
   var thermostat = new Thermostat();
 
   $('#form').submit(function () {
@@ -9,6 +11,8 @@ $(document).ready(function() {
       $('#weather').text(data.main.temp);
     })
   });
+
+
 
   $("#powerSaveOn").on("click", function(){
     thermostat.powerSaving("on");
